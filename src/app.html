@@ -12,10 +12,39 @@
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@6.1.8/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@6.1.8/dist/ionic/ionic.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@6.1.8/css/ionic.bundle.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.78/dist/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.78/dist/shoelace.js"></script>
 
     %sveltekit.head%
   </head>
   <body>
     <div>%sveltekit.body%</div>
+    
+    <script>
+      class MyButton extends HTMLElement {
+        constructor() {
+          super();
+        }
+        
+        connectedCallback() {
+          this.setAttribute('my-button', true);
+          const root = this.attachShadow({ mode: 'open' });
+          root.innerHTML = `
+            <style>
+              :host button {
+                background: red;
+              }
+              :host(.my-button) button {
+                background: green;
+              }
+            </style>
+            <button><slot></slot></button>
+          `
+        }
+      }
+      
+      customElements.define('wc-button', MyButton);
+    </script>
   </body>
 </html>
