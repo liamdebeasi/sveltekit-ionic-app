@@ -3,4 +3,5 @@
 
 <ion-button>Ionic button</ion-button>
 <sl-button>Shoelace Button</sl-button>
-<wc-button>Native WC Button</wc-button>
+<wc-button>Native WC Button - Shadow DOM</wc-button>
+<wc-button-light></wc-button-light>

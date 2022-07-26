@@ -35,7 +35,7 @@
               :host button {
                 background: red;
               }
-              :host(.my-button) button {
+              :host([my-button]) button {
                 background: green;
               }
             </style>
@@ -44,7 +44,32 @@
         }
       }
       
+      class MyButtonLight extends HTMLElement {
+        constructor() {
+          super();
+          
+          console.log('test')
+          this.setAttribute('my-button', true);
+          this.innerHTML = `
+            <style>
+              wc-button-light button {
+                background: red;
+              }
+              wc-button-light[my-button] button {
+                background: green;
+              }
+            </style>
+            <button>Native WC Button - Light DOM</button>
+          `
+        }
+        
+        connectedCallback() {
+          
+        }
+      }
+      
       customElements.define('wc-button', MyButton);
+      customElements.define('wc-button-light', MyButtonLight);
     </script>
   </body>
 </html>
