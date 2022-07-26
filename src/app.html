@@ -25,9 +25,7 @@
       class MyButton extends HTMLElement {
         constructor() {
           super();
-        }
         
-        connectedCallback() {
           this.setAttribute('my-button', true);
           const root = this.attachShadow({ mode: 'open' });
           root.innerHTML = `
@@ -46,10 +44,8 @@
       
       class MyButtonLight extends HTMLElement {
         constructor() {
-          super();        
-        }
-        
-        connectedCallback() {
+          super();   
+          
           this.setAttribute('my-button', true);
           this.innerHTML = `
             <style>
@@ -61,7 +57,7 @@
               }
             </style>
             <button>Native WC Button - Light DOM</button>
-          `
+          `     
         }
       }
       
