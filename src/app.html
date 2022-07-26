@@ -46,9 +46,10 @@
       
       class MyButtonLight extends HTMLElement {
         constructor() {
-          super();
-          
-          console.log('test')
+          super();        
+        }
+        
+        connectedCallback() {
           this.setAttribute('my-button', true);
           this.innerHTML = `
             <style>
@@ -61,10 +62,6 @@
             </style>
             <button>Native WC Button - Light DOM</button>
           `
-        }
-        
-        connectedCallback() {
-          
         }
       }
       
